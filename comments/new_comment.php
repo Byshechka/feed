@@ -1,5 +1,5 @@
-<?php require_once 'forms/post_form.php';
-require_once 'lib/auth_check.php';
+<?php require_once '../forms/comment_form.php';
+require_once '../lib/auth_check.php';
 check_user_auth();?>
 <html>
 <head>
@@ -16,7 +16,7 @@ check_user_auth();?>
 <body>
 <div class="container">
     <div class="row">
-        <?php echo get_post_form('create_post.php', 'new'); ?>
+        <?php echo get_comment_form('create_comment.php', 'new'); ?>
     </div>
 </div>
 </body>

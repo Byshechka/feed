@@ -1,4 +1,4 @@
-<?php require_once 'lib/db_connect.php'; ?>
+<?php require_once 'lib/db_queries.php'; ?>
 <html>
 <head>
     <link rel="stylesheet" type="text/css"
@@ -6,14 +6,13 @@
 </head>
 <body>
 <?php
-$query = mysqli_query($connect,"SELECT * FROM posts WHERE id={$_GET['id']}");
-if ($post = mysqli_fetch_object($query)) {
-    echo '<h1>', $post->title, '</h1>';
-    echo '<p>', $post->description, '</p>';
+if($post = select_records('posts', 'id', $_GET['id'], true)){
+    echo '<h1>', $post->title,'</h1>';
+    echo '<p>', $post->description,'</p>';
     echo '<a href="/">Cсылка назад</a>';
 }else{
-    echo '<h1>Пост отсутствует</h1>';
+    echo '<h1>Пост отсутствует!</h1>';
 }
 ?>
 </body>
-</html>
+
